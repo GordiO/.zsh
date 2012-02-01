@@ -11,23 +11,20 @@ HISTSIZE=$SAVEHIST          # Память текущего сеанса (рек
 setopt APPEND_HISTORY       # Дополнять файл истории
 setopt INCAPPENDHISTORY     # Дополнять историю сразу при выполнении команды
 setopt HIST_IGNORE_ALL_DUPS # При добавлении новой строки истории очищаются ее повторения
-setopt HIST_IGNORE_SPACE    # Не добавлять историю если первой командой идет пробел
+setopt HIST_IGNORE_SPACE    # Не добавлять историю если первым симколом команды идет пробел
 setopt HIST_REDUCE_BLANKS   # Чистить излишние пустые строки
 setopt HIST_NO_STORE        # не добавлять в историю `fc -l`
 setopt AUTOCD               # Автоматически переходить в директории (без cd)
 setopt BRACECCL             # Включить разворот {1-4} или {a-d}
 setopt NOCLOBBER            # Не переписывать файл echo > file если он существует. Что бы отменить используем >!
 setopt RM_STAR_WAIT         # Что бы предотвратить rm * o вместо rm *.o (как пример)
-setopt EQUALS               # Удобные сокращения путей к файлам в zsh
+setopt EQUALS               # Удобные сокращения путей к файлам
 
 ## MODULES: Модули
 autoload colors && colors       # Раскраска через $fg, $bg etc.
-#autoload -U compinit            # Загрузка умных автодополнений
-#compinit #-D                     # вкл. автодополнение (-D c кэшем для ускорения)
 
 ### altPROMPT: Устанавливаем все уровни приглашения
-PS1='%(!.%F{red}#%f.%F{green}$%f)%F{yellow}%38<…<%~%f${vcs_info_msg_0_}>'
-#PS1='%(!.%F{red}#%f.%F{green}$%f)%F{blue}%m%f@%F{yellow}%32<…<%~%f>'
+PS1='%(!.%F{red}#%f.%F{green}$%f)%F{yellow}%40<…<%~%f${vcs_info_msg_0_}>'
 RPS1='%F{gray}$p_rc%f'
 PS2='·  >'
 RPS2='%2<…<%i'      # показываем только двузначные номера строк
@@ -52,9 +49,8 @@ setopt PROMPT_SUBST
 p_rc="%(?.%T. [%F{red}%?%f%1v%f])"
 
 
-## ENVIRONMENT: Личние настройки такие как EDITOR='vim'; BROWSER='w3m' ;)
-BLOCKSIZE=Mb;   export BLOCKSIZE
-if [ -f ~/.zsh/env ]; then #FIX return 1 on start: Необходимо что бы при старте отображалось время а не ошибка
+if [ -f ~/.zsh/env ]
+then
 	source ~/.zsh/env
 fi
 
@@ -85,12 +81,11 @@ fi
 alias md='nocorrect mkdir -p'
 alias rd='rmdir'
 alias ...='../..'           # Родитель родителя =)
-alias ....='../../..'       # o.O
-alias .....='../../../..'   # >_<
+alias ....='../../..'       # >_<
 alias cd1='cd -'
 alias cd2='cd +2'
 alias cd3='cd +3'
-alias cd5='cd +4'           # дальше левой рукой тянуться тяжеловато :P
+alias cd4='cd +4'           # дальше левой рукой тянуться тяжеловато :P
 alias ll='ls -lh'           # вывog в gлuннoм фopмaтe
 alias la='ls -Ah'           # вывog всех файлов, включая dot-фaйлы, kpoмe . u ..
 alias lsa='ls -ldh .*'      # вывog тoльko dot-фaйлoв
@@ -105,7 +100,6 @@ alias -g   C='***/*.([chly]|[ch]pp|[ch]xx|C)'
 alias -g HEX='| xxd -g 1'
 alias -g   G='| grep'
 alias -g   S='| sed'
-alias -g  GI='| grep -i'
 alias -g   H='| head'
 alias -g   T='| tail'
 alias -g IKU='| iconv -cf koi8r  -t utf8'
@@ -216,12 +210,12 @@ zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' get-revision      true
 zstyle ':vcs_info:*' disable-patterns "$HOME(/bin|/Videos|/Music)"
 zstyle ':vcs_info:(svn|bzr):*'  branchformat '%b%F{1}:%F{3}%r'
-zstyle ':vcs_info:*' stagedstr "%F{yellow}•"
-zstyle ':vcs_info:*' unstagedstr "%F{red}•"
+zstyle ':vcs_info:*' stagedstr "%F{red}•"
+zstyle ':vcs_info:*' unstagedstr "%F{yellow}•"
 #zstyle ':vcs_info:*' actionformats '%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{3}|%F{1}%a%F{5}]%f'
 #zstyle ':vcs_info:*' formats '%F{green}%s%F{white}:%F{yellow}%b%F{red}%c%u%F{default}'
 zstyle ':vcs_info:*' actionformats ':%F{green}%b%u%c%F{default}'
-zstyle ':vcs_info:*' formats ':%F{green}%b%u%c%F{default}'
+zstyle ':vcs_info:*' formats ':%F{green}%16<…<%b%u%c%F{default}'
 setopt PROMPT_SUBST
 
 
@@ -266,15 +260,3 @@ zstyle ':completion:*:hosts' hosts $ssh_hosts
 zstyle ':completion:*:(ssh|scp|sftp):*' tag-order '! users' #не добавлять юзера
 
 zstyle ':completion:*:functions' ignored-patterns '_*'
-
-#zstyle ':completion:*' list-prompt '%SAt %p: Hit TAB for more, or the character to insert%s'
-#zstyle ':completion:*' menu select=1 _complete _ignored _approximate
-#zstyle -e ':completion:*:approximate:*' max-errors \
-	#'reply=( $(( ($#PREFIX+$#SUFFIX)/2 )) numeric )'
-#zstyle ':completion:*' select-prompt '%SScrolling active: current selection at %p%s'
-
-# А вот здесь вы можете исправить настройки которые вас не устроили.
-if [ -f ~/.zsh/fixall ]
-then
-	source ~/.zsh/fixall
-fi
