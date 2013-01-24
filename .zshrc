@@ -5,7 +5,7 @@
 
 HISTFILE="$ZDOTDIR/.zhistory" # Файл истории
 SAVEHIST=10000              # Размер истории команд (в HISTFILE)
-HISTSIZE=50                 # Память текущего сеанса (рекомендуют идентичную SAVEHIST)
+HISTSIZE=1000
 
 ## OPTIONS: Настройки
 setopt APPEND_HISTORY       # Дополнять файл истории
@@ -33,9 +33,10 @@ RPS3='%3<…<%i'      # ... трехзначные ...
 
 
 # FUNC FOLDER: Директория функций
-fpath=($fpath $HOME/.zsh/func)
-typeset -U fpath
-
+if [ $UID != 0 ]; then
+	fpath=($fpath $ZDOTDIR/func)
+	typeset -U fpath
+fi
 
 precmd ()
 {
