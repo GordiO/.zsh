@@ -9,7 +9,7 @@ HISTSIZE=1000
 
 ## OPTIONS: Настройки
 setopt APPEND_HISTORY       # Дополнять файл истории
-#setopt INCAPPENDHISTORY     # Дополнять историю сразу при выполнении команды
+setopt INCAPPENDHISTORY     # Дополнять историю сразу при выполнении команды
 setopt HIST_IGNORE_ALL_DUPS # При добавлении новой строки истории очищаются ее повторения
 setopt HIST_IGNORE_SPACE    # Не добавлять историю если первым симколом команды идет пробел
 setopt HIST_REDUCE_BLANKS   # Чистить излишние пустые строки
