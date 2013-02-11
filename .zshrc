@@ -5,7 +5,7 @@
 
 HISTFILE="$ZDOTDIR/.zhistory" # Файл истории
 SAVEHIST=10000              # Размер истории команд (в HISTFILE)
-HISTSIZE=1000
+HISTSIZE=10000
 
 ## OPTIONS: Настройки
 setopt APPEND_HISTORY       # Дополнять файл истории
@@ -52,9 +52,8 @@ p_rc="%(?.. [%F{red}%?%f%1v%f])"
 
 
 # COLORS: Включаем раскраску для файлов
-if [ -f "$HOME/.dircolors" ]; then
-	eval `dircolors $HOME/.dircolors`
-fi
+[ -f "$HOME/.dircolors" ] && eval `dircolors $HOME/.dircolors`
+
 # - colorize, since man-db fails to do so
 export LESS_TERMCAP_mb=$'\033[01;31m'   # begin blinking
 export LESS_TERMCAP_md=$'\033[01;31m'   # begin bold
@@ -216,7 +215,7 @@ setopt PROMPT_SUBST
 
 
 # Autocompletion for Mutt: Дополняем алиасы mutt'а
-if [[ -f ~/.mutt/aliases ]]; then
+if [ -f ~/.mutt/aliases ]; then
 	zstyle ':completion:*:mutt:*' ignored-patterns '*'
 	zstyle ':completion:*:mutt:*' users \
 	${${${(f)"$(<~/.mutt/aliases)"}#alias[[:space:]]}%%[[:space:]]*}
@@ -230,3 +229,6 @@ zstyle ':completion:*:hosts' hosts $ssh_hosts
 zstyle ':completion:*:(ssh|scp|sftp):*' tag-order '! users' #не добавлять юзера
 
 zstyle ':completion:*:functions' ignored-patterns '_*'
+
+
+[ -f ~/.zshrc ] && . ~/.zshrc
