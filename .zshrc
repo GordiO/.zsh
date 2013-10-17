@@ -202,14 +202,14 @@ zstyle -e ':completion:*:sudo:*' command-path 'reply=($path /usr/local/sbin /sbi
 # Show branches for VCS in terminal PS
 autoload -Uz vcs_info
 # Enabled for ... For supported list: `vcs_info_printsys`
-zstyle ':vcs_info:*' enable svn git cvs hg
+#zstyle ':vcs_info:*' enable svn git cvs hg
 zstyle ':vcs_info:(svn|bzr):*' branchformat '%b%F{1}:%F{3}%r'
 zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:*' get-revision      true
+#zstyle ':vcs_info:*' get-revision      true
 zstyle ':vcs_info:*' stagedstr "%F{red}•"
 zstyle ':vcs_info:*' unstagedstr "%F{yellow}•"
 zstyle ':vcs_info:*' actionformats ':%F{green}%b%u%c%F{default}'
-zstyle ':vcs_info:*' formats ':%F{green}%16<…<%b%u%c%F{default}'
+zstyle ':vcs_info:*' formats ':%F{green}%20<…<%b%u%c%F{default}'
 #zstyle ':vcs_info:*' disable-patterns "$HOME(/example_usage)"
 setopt PROMPT_SUBST
 
