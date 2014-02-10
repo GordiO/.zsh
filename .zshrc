@@ -65,8 +65,9 @@ export LESS_TERMCAP_us=$'\033[1;32m'    # begin underline
 
 # Выключем исправление ввода для mkdir
 alias md='nocorrect mkdir -p'
-alias ...='../..'           # Родитель родителя =)
-alias ....='../../..'       # >_<
+alias ..='cd ..'           # Родитель родителя =)
+alias -g ...='../..'           # Родитель родителя =)
+alias -g ....='../../..'       # >_<
 alias cd1='cd -'
 alias cd2='cd +2'
 alias cd3='cd +3'
