@@ -24,7 +24,7 @@ setopt EQUALS               # Удобные сокращения путей к 
 autoload colors && colors       # Раскраска через $fg, $bg etc.
 
 ### altPROMPT: Устанавливаем все уровни приглашения
-PS1='%F{gray}%m@%(!.%F{red}%B.%F{green})%n%b%f %F{yellow}%40<…<%~%f${vcs_info_msg_0_}>'
+PS1='%F{magenta}%m%f@%(!.%F{red}%B.%F{green})%n%b%f %F{yellow}%40<…<%~%f${vcs_info_msg_0_}>'
 RPS1='%F{gray}$p_rc%f'
 PS2='·  >'
 RPS2='%2<…<%i'      # показываем только двузначные номера строк
