@@ -1,0 +1,7 @@
+
+# Autocompletion for Mutt
+if [ -f ~/.mutt/aliases ]; then
+	zstyle ':completion:*:mutt:*' ignored-patterns '*'
+	zstyle ':completion:*:mutt:*' users \
+	${${${(f)"$(<~/.mutt/aliases)"}#alias[[:space:]]}%%[[:space:]]*}
+fi

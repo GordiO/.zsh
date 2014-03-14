@@ -14,11 +14,14 @@ Install as user (NO ROOT). For full install you need:
 	# Set you default shell (optional)
 	chsh -s $(where zsh) $USER
 
+    # Install functions
+    cp -r ~/.zsh/func.def/* ~/.zsh/func.c/
+
 
 Customize
 ---------
 
 - `~/.zshenv` - You custom environment (run before .zshrc)
-- `~/.zsh/.zlogin` - You custom options
+- `~/.zshrc` - You custom options
 
 Attached example .dircolors
