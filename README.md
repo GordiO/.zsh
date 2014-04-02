@@ -19,7 +19,7 @@ or
 	chsh -s $(where zsh) $USER
 
     # Install functions
-    cp -r ~/.zsh/func.def/* ~/.zsh/func.c/
+    cd $HOME/.zsh/func.def/ && for f in *; do ln -s ../func.def/$f ../func.d/$f;done
 
 
 Customize
