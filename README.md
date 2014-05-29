@@ -3,29 +3,47 @@ Description
 Pre defined ZSH config. (TODO)
 
 
+
 Installation
 ------------
-Install as user (NO ROOT). For full install you need:
+Execute as user (NO ROOT):
 
-	(curl https://codeload.github.com/gordio/.zsh/tar.gz/master 2>/dev/null | tar -zx -C $HOME/ && mv $HOME/.zsh{-master,} && echo 'ZDOTDIR="$HOME/.zsh"' >> $HOME/.zshenv && cd $HOME/.zsh/func.def/ && for f in *; do ln -s ../func.def/$f ../func.d/$f;done) && echo "Installed successful to $HOME/"
+```
+	(curl https://codeload.github.com/gordio/.zsh/tar.gz/master 2>/dev/null | tar -zx -C $HOME/ && mv $HOME/.zsh{-master,} && echo 'ZDOTDIR="$HOME/.zsh"' >> $HOME/.zshenv && echo "Installed successful to $HOME/"; chsh -s $(where zsh)
+```
 
 or
 
+```
 	cd $HOME
 	git clone http://github.com/gordio/.zsh
 	echo 'ZDOTDIR="$HOME/.zsh"' >> $HOME/.zshenv
 	
 	# Set you default shell (optional)
-	chsh -s $(where zsh) $USER
+	chsh -s $(where zsh)
+```
 
-    # Install functions
-    cd $HOME/.zsh/func.def/ && for f in *; do ln -s ../func.def/$f ../func.d/$f;done
 
 
 Customize
 ---------
 
-- `~/.zshenv` - You custom environment (run before .zshrc)
 - `~/.zshrc` - You custom options
+- Add plugins=(vcs_prompt) to you ~/.zshrc if need this plugin...
 
-Attached example .dircolors
+
+
+TODO
+----
+
+- Autoupdate with days timeout (git pull for git installation)
+- Check for updates with n days timeout (curl, for systems without git)
+- Fuction for list all completions and plugins with description
+
+
+
+Development
+-----------
+
+- Completion functions must have name _<short_name> and have second file comment (not line) with max 60 chars description.
+- 'Plugins' must have name <short_name> (without .zsh), and second file commen(not line) with max 60 chars description

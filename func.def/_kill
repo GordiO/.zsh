@@ -1,7 +1,0 @@
-zstyle ':completion:*:processes' command 'ps ax -o pid,user,s,nice,args | sed "/ps/d"'
-#zstyle ':completion:*:processes' sort false
-zstyle ':completion:*:processes-names' command 'ps xho command'
-zstyle ':completion:*:*:kill:*:processes' command 'ps -u $USER -o pid,user,cmd'
-zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
-zstyle ':completion:*:*:kill:*' menu yes select
-zstyle ':completion:*:kill:*' force-list always

@@ -1,2 +1,0 @@
-# Add root binary to `sudo` completion
-zstyle -e ':completion:*:sudo:*' command-path 'reply=($path /usr/local/sbin /sbin /usr/sbin)'

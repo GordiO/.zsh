@@ -1,4 +1,0 @@
-# Autocompletion ssh
-#typeset -U ssh_hosts
-#zstyle ':completion:*:hosts' hosts $ssh_hosts
-#zstyle ':completion:*:(ssh|scp|sftp|sshfs):*' tag-order '! users' #не добавлять юзера

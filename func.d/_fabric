@@ -1,5 +1,7 @@
 #compdef fab
 
+# Fabric tasks autocompletion
+
 _targets() {
     _describe -t commands "fabric targets" target_list
 }
