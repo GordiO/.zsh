@@ -1,0 +1,122 @@
+/*! normalize.css v2.1.2 | MIT License | git.io/normalize */
+article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block} audio,canvas,video{display:inline-block} audio:not([controls]){display:none;height:0} [hidden],template{display:none} script{display:none!important} html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%} a{background:transparent} a:focus{outline:thin dotted} a:active,a:hover{outline:0} h1{font-size:2em;margin:.67em 0} abbr[title]{border-bottom:1px dotted} b,strong{font-weight:700} dfn{font-style:italic} hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0} mark{background:#ff0;color:#000} code,kbd,pre,samp{font-family:monospace, serif;font-size:1em} pre{white-space:pre-wrap} q{quotes:\201C \201D \2018 \2019} small{font-size:80%} sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline} sup{top:-.5em} sub{bottom:-.25em} img{border:0} svg:not(:root){overflow:hidden} fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em} button,input,select,textarea{font-family:inherit;font-size:100%;margin:0} button,input{line-height:normal} button,select{text-transform:none} button,html input[type=button], input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer} button[disabled],html input[disabled]{cursor:default} input[type=checkbox],input[type=radio]{box-sizing:border-box;padding:0} input[type=search]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box} input[type=search]::-webkit-search-cancel-button,input[type=search]::-webkit-search-decoration{-webkit-appearance:none} textarea{overflow:auto;vertical-align:top} table{border-collapse:collapse;border-spacing:0} body,figure{margin:0} legend,button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}
+
+/* Site styles */
+body {
+	margin: 0 auto;
+	padding: 0 1rem;
+	width: 40em;
+	color: #E1E1E0;
+	background: #333332;
+}
+h1, h2, h3, h4, h5, h6 {
+	color: #F3F3F2;
+}
+
+header {
+	padding: 0.25rem;
+	text-align: center;
+	border-bottom: 1px dashed #535352;
+}
+
+header h1 {
+	color: #CCC3B1;
+}
+
+
+code {
+	display: block;
+	padding: 1em;
+	background: #131313;
+	border: 1px solid #070707;
+	border-radius: 0.25rem;
+}
+
+
+
+/* Slider */
+div#slider {
+	overflow: hidden;
+	width: 40em;
+	border-radius: 5px;
+	box-shadow: 0 0 1em 0 #111;
+	height: 20em;
+	font-family: menlo, monospace;
+	background: #E6E6E6;
+}
+div#slider:before {
+	display: block;
+	z-index: 9999;
+	width: 40em;
+	height: 1.5em;
+	line-height: 1.5em;
+	position: absolute;
+	content: "Yet Another ZSH config";
+	text-align: center;
+	color: #444;
+	text-shadow: 0 1px 0 #DDD;
+	border-top: 1px solid rgba(255, 255, 255, 0.5);
+	border-radius: 5px 5px 0 0 ;
+	background: #AEAEAE;
+	background-image: linear-gradient(#d6d6d6, #a2a2a2)
+}
+
+div#slider figure code {
+	padding: 0.25em;
+	padding-top: 1.75em; /* self element + div#slider:before */
+	margin: 0;
+	display: inline-block;
+	width: 25%;
+	height: 100%;
+	font-size: 1rem;
+	border: none;
+	color: #000;
+	background: transparent;
+	-webkit-box-sizing: border-box;
+}
+div#slider figure code em {
+	font-style: normal;
+}
+code em.green  {color:#6b722a;}
+code em.yellow {color:#86721d;}
+code em.red    {color:#d72122;}
+code em.magenta {color:#7d628f;}
+code em.blue   {color:#5476a2;}
+
+div#slider figure { 
+	position: relative;
+	width: 400%;
+	margin: 0;
+	left: 0;
+	font-size: 0;
+	-webkit-animation: 30s slidy infinite;
+	animation: 30s slidy infinite; 
+}
+div#slider figure:hover { 
+	-webkit-animation-play-state:paused;
+	animation-play-state:paused;
+}
+
+@-webkit-keyframes slidy {
+	0% { left: 0%; }
+	24% { left: 0%; }
+	26% { left: -100%; }
+	49% { left: -100%; }
+	51% { left: -200%; }
+	74% { left: -200%; }
+	76% { left: -300%; }
+	96% { left: -300%; }
+	100% { left: -0%; }
+}
+/*@keyframes slidy {
+	0% { left: 0%; }
+	20% { left: 0%; }
+	25% { left: -100%; }
+	45% { left: -100%; }
+	50% { left: -200%; }
+	70% { left: -200%; }
+	75% { left: -300%; }
+	95% { left: -300%; }
+	100% { left: -400%; }
+}
+*/
