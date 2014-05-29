@@ -12,8 +12,11 @@
 	</header>
 	<article>
 		<div id="slider">
+			<h2 class="win_title">Yet Another ZSH config</h2>
 			<figure>
-				<code>
+ 				<code>
+					# Plugins: VCS example<br>
+					#<br>
 					<em class="magenta">Sun</em>@<em class="green">gordio</em> <em class="yellow">~/.zsh</em>:<em class="green">master</em>>git checkout gh-pages<br>
 					Switched to branch 'gh-pages'<br>
 					<em class="magenta">Sun</em>@<em class="green">gordio</em> <em class="yellow">~/.zsh</em>:<em class="green">gh-pages</em>>git status --short<br>
@@ -26,22 +29,66 @@
 					<em class="magenta">Sun</em>@<em class="green">gordio</em> <em class="yellow">~/.zsh</em>:<em class="green">gh-pages</em><em class="red">•</em>>echo 1 >> style.css<br>
 					<em class="magenta">Sun</em>@<em class="green">gordio</em> <em class="yellow">~/.zsh</em>:<em class="green">gh-pages</em><em class="yellow">•</em><em class="red">•</em>>
 
-					<br><br><br>
+					<br><br>
 					<em class="magenta">hostname</em>@<em class="green">username</em> <em class="yellow">~/.zsh</em>:<em class="green">branch</em>>
 				</code>
 
 				<code>
+				# Autocompletion example<br>
+				#<br>
+<pre>search     -- search for a formula (/regex/ or string)
+server     -- start a local web app that lets you browse formulae (requires Sin
+services   -- small wrapper around `launchctl` for supported formulae
+tap        -- tap a new formula repository from GitHub, or list existing taps
+unlink     -- unlink a formula
+unpin      -- unpin specified formulae
+untap      -- remove a tapped repository
+update     -- freshen up links
+upgrade    -- upgrade outdated formulae
+uses       -- show formulae which depend on a formula</pre>
+<em class="magenta">Sun</em>@<em class="green">gordio</em> <em class="yellow">~</em>>brew +{Tab}
 				</code>
+
 				<code>
+					# Global aliases<br>
+					#<br><br>
+					<em class="magenta">Sun</em>@<em class="green">gordio</em> <em class="yellow">~</em>>ls -1<br>
+					Desktop<br>
+					Documents<br>
+					Downloads<br>
+					Movies<br>
+					Music<br>
+					Pictures<br>
+					<em class="magenta">Sun</em>@<em class="green">gordio</em> <em class="yellow">~</em>>ls -l G Do<br>
+					Documents<br>
+					Downloads<br>
+					<br>
+					<em class="magenta">Sun</em>@<em class="green">gordio</em> <em class="yellow">~</em>>echo work S 's/w/f/'<br>
+					fork
 				</code>
+
 				<code>
+					# History search<br>
+					# Use Ctrl+R<br><br>
+					<em class="magenta">Sun</em>@<em class="green">gordio</em> <em class="yellow">~</em>>git <u>sta</u>tus --short<br>   
+					bck-i-search: sta_<br><br>
+					# Customizeble<br>
+					# Just edit ~/.zshrc<br>
+					<em class="magenta">Sun</em>@<em class="green">gordio</em> <em class="yellow">~</em>>vim ~/.zshrc<br>
 				</code>
 			</figure>
 		</div>
+
 		<h2>Installation</h2>
 		<p>Execute as user (NOT ROOT):</p>
 		<code>curl -L http://raw.github.com/gordio/.zsh/install.sh | sh</code>
+
 		<h2>Customization</h2>
+		<ul>
+			<li>Edit ~/.zshrc</li>
+			<li>Add autocompletions to ~/.zsh/func.d/</li>
+			<li>Add plugins to ~/.zsh/func.d/</li>
+		</ul>
 	</article>
 </body>
 </html>
