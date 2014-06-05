@@ -9,7 +9,7 @@ Installation
 Execute as user (NO ROOT):
 
 ```
-	(curl https://codeload.github.com/gordio/.zsh/tar.gz/master 2>/dev/null | tar -zx -C $HOME/ && mv $HOME/.zsh{-master,} && echo 'ZDOTDIR="$HOME/.zsh"' >> $HOME/.zshenv && echo "Installed successful to $HOME/"; chsh -s $(where zsh)
+	(curl https://codeload.github.com/gordio/.zsh/tar.gz/master 2>/dev/null | tar -zx -C $HOME/) && mv $HOME/.zsh{-master,} && echo 'ZDOTDIR="$HOME/.zsh"' >> $HOME/.zshenv && echo "Installed successful to $HOME/"; chsh -s $(where zsh)
 ```
 
 or
