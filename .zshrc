@@ -30,7 +30,7 @@ bindkey "^El" expand-cmd-path # expand absolute command path
 
 
 # PROMPT
-PS1='%F{magenta}%m%f@%(!.%F{red}%B.%F{green})%n%b%f %F{yellow}%40<…<%~%f${vcs_info_msg_0_}>'
+PS1='%(!.%F{red}%B.%F{green})%n%b%f@%F{magenta}%m%f %F{yellow}%40<…<%~%f${vcs_info_msg_0_}>'
 RPS1='%F{gray}$p_rc%f'
 
 
