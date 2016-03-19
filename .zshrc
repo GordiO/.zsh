@@ -22,6 +22,9 @@ setopt RM_STAR_WAIT # Что бы предотвратить rm * o вместо
 setopt EQUALS # Удобные сокращения путей к файлам
 setopt PROMPT_SUBST # Allow functions in prompt
 
+#Auto Escape URLS
+autoload -U url-quote-magic
+zle -N self-insert url-quote-magic
 
 # KEYBINDINGS
 bindkey "^R" history-incremental-search-backward # Search in History
