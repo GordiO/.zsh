@@ -18,7 +18,7 @@ setopt HIST_NO_STORE # Don't add to history `fc -l`
 setopt AUTOCD # Automatic cd to directories exmpl: /root + Enter
 setopt BRACECCL # Включить разворот {1-4} или {a-d}
 setopt NOCLOBBER # Не переписывать файл echo > file если он существует. Что бы отменить используем >!
-setopt RM_STAR_WAIT # Что бы предотвратить rm * o вместо rm *.o (как пример)
+#setopt RM_STAR_WAIT # Что бы предотвратить rm * o вместо rm *.o (как пример)
 setopt EQUALS # Удобные сокращения путей к файлам
 setopt PROMPT_SUBST # Allow functions in prompt
 
@@ -33,8 +33,15 @@ bindkey "^El" expand-cmd-path # expand absolute command path
 
 
 # PROMPT
-PS1='%(!.%F{red}%B.%F{green})%n%b%f@%F{magenta}%m%f %F{yellow}%40<…<%~%f${vcs_info_msg_0_}>'
-RPS1='%F{gray}$p_rc%f'
+# One line prompt
+#PS1='%(!.%F{red}%B.%F{green})%n%b%f@%F{magenta}%m%f %F{yellow}%40<…<%~%f${vcs_info_msg_0_}>'
+
+PS1_USER="%(!.%F{red}%B.%F{green})%n%b%f"
+PS1_HOST="%F{magenta}%m%f"
+PS1_PATH="%F{yellow}%~%f"
+export PS1=$'${PS1_HOST}@${PS1_USER} ${PS1_PATH}${vcs_info_msg_0_}\n%(!.%F{red}%B.%F{white})%B❱%b%f '
+
+export RPS1='%F{gray}$p_rc%f'
 
 
 # ALIASES
@@ -85,5 +92,5 @@ done
 
 # INIT: Completions
 autoload -U compinit
-compinit -i
+[ -f  ~/.zcompdump ] || compinit -i
 
