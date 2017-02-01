@@ -34,12 +34,14 @@ bindkey "^El" expand-cmd-path # expand absolute command path
 
 # PROMPT
 # One line prompt
-#PS1='%(!.%F{red}%B.%F{green})%n%b%f@%F{magenta}%m%f %F{yellow}%40<…<%~%f${vcs_info_msg_0_}>'
-
-PS1_USER="%(!.%F{red}%B.%F{green})%n%b%f"
-PS1_HOST="%F{magenta}%m%f"
-PS1_PATH="%F{yellow}%~%f"
-export PS1=$'${PS1_HOST}@${PS1_USER} ${PS1_PATH}${vcs_info_msg_0_}\n%(!.%F{red}%B.%F{white})%B❱%b%f '
+if [ -z ${ZSH_MULTILINE} ]; then
+	export PS1='%(!.%F{red}%B.%F{green})%n%b%f@%F{magenta}%m%f %F{yellow}%40<…<%~%f${vcs_info_msg_0_}>'
+else
+	PS1_USER="%(!.%F{red}%B.%F{green})%n%b%f"
+	PS1_HOST="%F{magenta}%m%f"
+	PS1_PATH="%F{yellow}%~%f"
+	export PS1=$'${PS1_HOST}@${PS1_USER} ${PS1_PATH}${vcs_info_msg_0_}\n%(!.%F{red}%B.%F{white})%B❱%b%f '
+fi
 
 export RPS1='%F{gray}$p_rc%f'
 

@@ -29,7 +29,8 @@ Customize
 ---------
 
 - `~/.zshrc` - You custom options
-- Add plugins=(vcs_prompt) to you ~/.zshrc if need this plugin...
+- Add plugins to `~/.zsh/func.d/`
+- Add `ZSH_MULTILINE=1` to `~/.zshenv` for multiline prompt
 
 
 
