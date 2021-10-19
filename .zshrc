@@ -93,6 +93,9 @@ for plugin in $plugins; do
 done
 
 # INIT: Completions
-autoload -U compinit
-[ -f  ~/.zcompdump ] || compinit -i
-
+autoload -Uz compinit
+if [[ -n ${ZDOTDIR:-${HOME}}/$ZSH_COMPDUMP(#qN.mh+24) ]]; then
+	compinit -d $ZSH_COMPDUMP;
+else
+	compinit -C;
+fi;
